@@ -29,7 +29,7 @@ Permet de créer facilement un **package Debian (.deb)** avec interface graphiqu
 - Sélection des binaires et création des liens symboliques
 - Choix de l’icône et de la catégorie pour `.desktop`
 - Option d’inclure README et LICENSE MIT automatiquement
-- Génère les fichiers nécessaires dans `DEBIAN/` : `control`, `postinst`, `postrm`
+- Génère les fichiers nécessaires dans `DEBIAN/` : `control`, `postinst`, `postrm`, quelques ajustements a faire dans les fichiers en fonction des besoins
 - Création finale du `.deb` directement depuis l’interface
 
 👉 [Voir le script](./deb_empacktor.sh)
