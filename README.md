@@ -1,32 +1,52 @@
-# 📘 BD Converter – PDF → CBZ/CBR
+# 🧰 YAD Scripts Bash GUI
 
 **Auteur :** DPMW (pacman29800)  
-**Version :** 1.0.0  
 **Licence :** MIT  
 **Date :** 2025  
 
 ---
 
-## 🧩 Description
+## 📦 Contenu du dépôt
 
-**BD Converter** est un script **Bash graphique** utilisant **YAD** (Yet Another Dialog) pour convertir des fichiers **PDF** en **archives CBZ ou CBR**, formats utilisés pour les bandes dessinées numériques.
+Ce dépôt regroupe plusieurs **scripts Bash avec interface graphique YAD** pour Linux.
 
-L’application gère la conversion page par page, le renommage automatique, la création d’archives, et affiche une **barre de progression graphique** avec possibilité d’annulation.
+### 🔹 1. BD Converter (`bd_converter.sh`)
+Convertit des fichiers **PDF** en **archives CBZ ou CBR** avec interface graphique.
+
+- Conversion page par page via `pdftoppm`
+- Création automatique d’archives CBZ/CBR
+- Barre de progression et annulation via YAD
+- Options : résolution, format image, logs, suppression du PDF original
+
+👉 [Voir le script](./bd_converter.sh)
 
 ---
 
-## ⚙️ Dépendances
+### 🔹 2. DEB Empacktor (`deb_empacktor.sh`)
+Permet de créer facilement un **package Debian (.deb)** avec interface graphique YAD.
 
-Avant utilisation, installe les paquets suivants :
+- Formulaire pour saisir les informations du package (nom, version, mainteneur, architecture)
+- Sélection des binaires et création des liens symboliques
+- Choix de l’icône et de la catégorie pour `.desktop`
+- Option d’inclure README et LICENSE MIT automatiquement
+- Génère les fichiers nécessaires dans `DEBIAN/` : `control`, `postinst`, `postrm`
+- Création finale du `.deb` directement depuis l’interface
+
+👉 [Voir le script](./deb_empacktor.sh)
+
+---
+
+## ⚙️ Dépendances communes
 
 | Paquet | Rôle |
 |:--|:--|
 | `yad` | Interface graphique |
-| `pdftoppm`, `pdfinfo` | Conversion et info sur les PDF |
-| `zip` | Création d’archives CBZ |
-| `rar` | Création d’archives CBR |
-| `sensors` | Contrôle de la température CPU |
+| `bash` | Interpréteur de scripts |
+| `dpkg-deb` | Construction du package `.deb` |
+| `zip`, `rar`, `pdftoppm` | Pour BD Converter |
+| `sensors` *(optionnel)* | Pour BD Converter (lecture température CPU) |
 
 ### 🔸 Installation (Ubuntu / Debian)
 ```bash
-sudo apt install yad poppler-utils zip rar lm-sensors
+sudo apt install yad bash dpkg-dev zip rar poppler-utils lm-sensors
+
